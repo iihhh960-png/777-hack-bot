@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>777 HACK BOT - ABSOLUTE SYNC</title>
+    <title>777 HACK BOT - FINAL SYNC V2</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
         iframe { width: 100%; height: 100vh; border: none; }
@@ -14,21 +14,20 @@
 
     <script>
     (function() {
-        // ၁။ Password စာရင်း (admin114 နှင့် zwe_001 မှ zwe_050)
-        let allowedPasswords = ["admin114"];
+        // ၁။ User ၅၀ အတွက် သီးသန့် Password စာရင်း
+        const passwords = ["admin114"];
         for (let i = 1; i <= 50; i++) {
-            allowedPasswords.push("zwe_" + i.toString().padStart(3, '0'));
+            passwords.push("zwe_" + i.toString().padStart(3, '0'));
         }
 
-        // ၂။ Auto Login စစ်ဆေးခြင်း
+        // ၂။ Login အခြေအနေ စစ်ဆေးခြင်း
         let savedPass = localStorage.getItem("user_logged_in");
-        if (savedPass && allowedPasswords.includes(savedPass)) {
+        if (savedPass && passwords.includes(savedPass)) {
             showHackTool(); 
         } else {
             createLoginUI();
         }
 
-        // ၃။ Login UI ဖန်တီးခြင်း (Telegram Link ပါဝင်သည်)
         function createLoginUI() {
             var loginOverlay = document.createElement('div');
             loginOverlay.style = 'position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:2147483647;display:flex;justify-content:center;align-items:center;font-family:sans-serif;';
@@ -42,14 +41,13 @@
             `;
             document.body.appendChild(loginOverlay);
 
-            // Password တောင်းရန် နှိပ်လျှင် Telegram သို့ သွားရန်
             document.getElementById('get_pass_btn').onclick = function() {
                 window.open('https://t.me/ZweCKKHack114', '_blank');
             };
 
             document.getElementById('login_btn').onclick = function() {
                 let input = document.getElementById('user_pass').value.trim();
-                if(allowedPasswords.includes(input)) {
+                if(passwords.includes(input)) {
                     localStorage.setItem("user_logged_in", input);
                     loginOverlay.remove();
                     showHackTool();
@@ -59,7 +57,6 @@
             };
         }
 
-        // ၄။ Hack Result Box (ပွဲစဉ်မှတ်ကို Screenshot ပါ အချိန်နှင့် အတိအကျ ညှိထားသည်)
         function showHackTool() {
             var hackBox = document.createElement('div');
             hackBox.style = 'position:fixed;top:60px;right:10px;z-index:99999;background:rgba(0,0,0,0.95);color:white;padding:15px;border-radius:15px;border:2px solid #00d2ff;font-family:sans-serif;min-width:180px;pointer-events:none;box-shadow:0 0 20px rgba(0,210,255,0.6);';
@@ -79,10 +76,7 @@
                 </div>
 
                 <hr style="border:0.5px solid #333;margin:12px 0;">
-                
-                <div style="font-size:10px;color:#00d2ff;text-align:center;font-weight:bold;letter-spacing:1px;text-shadow: 0 0 5px #00d2ff;">
-                    MADE BY ZWE MANN OO
-                </div>
+                <div style="font-size:10px;color:#00d2ff;text-align:center;font-weight:bold;letter-spacing:1px;text-shadow: 0 0 5px #00d2ff;">MADE BY ZWE MANN OO</div>
             `;
             document.body.appendChild(hackBox);
 
@@ -92,14 +86,13 @@
                 let month = (now.getMonth() + 1).toString().padStart(2, '0');
                 let day = now.getDate().toString().padStart(2, '0');
                 
-                // --- ပွဲစဉ်မှတ် အတိအကျ ချိန်ညှိမှု အပိုင်း ---
-                // Screenshot အရ 19:48 အချိန်တွင် ပွဲစဉ်မှတ်မှာ 1598 ဖြစ်သည်
+                // Screenshot အရ ၂၀:၀၂ အချိန်တွင် ဂိမ်းထဲတွင် ၁၆၂၅ ဖြစ်နေသည်
+                // ထို့ကြောင့် Offset ကို -၇၇၉ သို့ ညှိလိုက်သည် (အရင်ကထက် ၁ ပွဲ လျှော့တွက်ခြင်း)
                 let totalSecondsInDay = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
-                let issueCalculation = Math.floor(totalSecondsInDay / 30) - 778; // Offset ကို 778 သို့ ညှိထားပါသည်
+                let issueCalculation = Math.floor(totalSecondsInDay / 30) - 779; 
                 
                 let issueStr = year + month + day + "10005" + issueCalculation.toString().padStart(4, '0');
                 document.getElementById('h_i').innerText = issueStr;
-                // ------------------------------------
 
                 let sec = now.getSeconds();
                 let remaining = 30 - (sec % 30);
@@ -117,7 +110,3 @@
     </script>
 </body>
 </html>
-
-
-
-
