@@ -1,105 +1,115 @@
-(function() {
-    // ၁။ UI အဟောင်းများ ဖျက်ခြင်း
-    var oldOverlay = document.getElementById('login_overlay');
-    var oldHack = document.getElementById('hack_container');
-    if(oldOverlay) oldOverlay.remove();
-    if(oldHack) oldHack.remove();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>777 HACK BOT - PREMIUM</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
+        iframe { width: 100%; height: 100vh; border: none; }
+    </style>
+</head>
+<body>
+    <iframe id="gameFrame" src="https://777bigwingame.vip/"></iframe>
 
-    // ၂။ Password စာရင်း
-    let allowedPasswords = ["admin114"];
-    for (let i = 1; i <= 50; i++) {
-        allowedPasswords.push("zwe_" + i.toString().padStart(3, '0'));
-    }
+    <script>
+    (function() {
+        // ၁။ Password စာရင်း
+        let allowedPasswords = ["admin114"];
+        for (let i = 1; i <= 50; i++) {
+            allowedPasswords.push("zwe_" + i.toString().padStart(3, '0'));
+        }
 
-    // ၃။ Login Box
-    var loginOverlay = document.createElement('div');
-    loginOverlay.id = 'login_overlay';
-    loginOverlay.style = 'position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:2147483647;display:flex;justify-content:center;align-items:center;font-family:sans-serif;';
-    
-    loginOverlay.innerHTML = `
-        <div style="background:#1a1a1a;padding:35px;border-radius:25px;width:300px;text-align:center;border:2px solid #00d2ff;box-shadow:0 0 30px rgba(0,210,255,0.4);">
-            <div style="color:#00d2ff;font-size:26px;margin-bottom:25px;font-weight:bold;letter-spacing:3px;">777 HACK</div>
-            <input type="password" id="user_pass" placeholder="Enter Password" style="width:100%;padding:14px;margin-bottom:15px;border-radius:12px;border:1px solid #333;background:#000;color:#fff;text-align:center;outline:none;font-size:16px;">
-            <button id="login_btn" style="width:100%;padding:14px;background:#00d2ff;color:#000;border:none;border-radius:12px;font-weight:bold;cursor:pointer;margin-bottom:15px;font-size:15px;">LOGIN</button>
-            <button id="get_pass_btn" style="width:100%;padding:10px;background:transparent;color:#00d2ff;border:1px solid #00d2ff;border-radius:12px;font-weight:bold;cursor:pointer;font-size:13px;">PASSWORD တောင်းရန်</button>
-            <div style="margin-top:25px;color:#aaa;font-size:12px;font-weight:bold;">MADE BY ZWE MANN OO</div>
-        </div>
-    `;
-    document.body.appendChild(loginOverlay);
-
-    document.getElementById('get_pass_btn').onclick = function() {
-        window.open('https://t.me/ZweCKKHack114', '_blank'); 
-    };
-
-    document.getElementById('login_btn').onclick = function() {
-        let pass = document.getElementById('user_pass').value;
-        if(allowedPasswords.includes(pass)) {
-            loginOverlay.remove();
-            startHack(); 
+        // ၂။ Auto Login စစ်ဆေးခြင်း
+        let savedPass = localStorage.getItem("user_logged_in");
+        if (savedPass && allowedPasswords.includes(savedPass)) {
+            showHackTool(); 
         } else {
-            alert("Password မှားယွင်းနေပါသည်။");
+            createLoginUI();
         }
-    };
 
-    // ၄။ Main Hack Tool (Improved Logic)
-    function startHack() {
-        var div = document.createElement('div');
-        div.id = 'hack_container';
-        div.style = 'position:fixed;top:60px;right:10px;z-index:99999;background:rgba(0,0,0,0.95);color:white;padding:12px;border-radius:15px;border:2px solid #00d2ff;font-family:sans-serif;min-width:180px;box-shadow:0 0 20px rgba(0,210,255,0.6);pointer-events:none;';
-        
-        div.innerHTML = `
-            <div style="color:#00d2ff;font-size:11px;text-align:right;font-weight:bold;margin-bottom:8px;">REAL-TIME SYNC</div>
-            <div style="display:flex;justify-content:space-between;margin:5px 0;align-items:center;">
-                <span style="color:#ccc;">ပွဲစဉ်</span>
-                <span id="hack_i" style="background:#222;padding:3px 12px;border-radius:8px;font-size:22px;color:#fff;font-weight:bold;border:1px solid #444;">---</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;margin:8px 0;align-items:center;">
-                <span style="color:#ccc;">အချိန်</span>
-                <span id="hack_t" style="background:#222;padding:3px 8px;border-radius:8px;color:#0f0;font-weight:bold;font-size:20px;">00:00</span>
-            </div>
-            <hr style="border:0;border-top:1px solid #444;margin:10px 0;">
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-                <span style="color:#ccc;">Result:</span>
-                <b id="hack_r" style="color:#ff4757;font-size:28px;">--</b>
-            </div>
-            <div style="margin-top:12px;font-size:11px;color:#00d2ff;text-align:center;font-weight:bold;border-top:1px solid #333;padding-top:8px;">MADE BY ZWE MANN OO</div>
-        `;
-        document.body.appendChild(div);
+        function createLoginUI() {
+            var loginOverlay = document.createElement('div');
+            loginOverlay.style = 'position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:2147483647;display:flex;justify-content:center;align-items:center;font-family:sans-serif;';
+            loginOverlay.innerHTML = `
+                <div style="background:#1a1a1a;padding:35px;border-radius:25px;width:300px;text-align:center;border:2px solid #00d2ff;box-shadow:0 0 30px rgba(0,210,255,0.4);">
+                    <div style="color:#00d2ff;font-size:26px;margin-bottom:25px;font-weight:bold;letter-spacing:3px;">777 HACK</div>
+                    <input type="text" id="user_pass" placeholder="Enter Password" style="width:100%;box-sizing:border-box;padding:14px;margin-bottom:15px;border-radius:12px;border:1px solid #333;background:#000;color:#fff;text-align:center;outline:none;">
+                    <button id="login_btn" style="width:100%;padding:14px;background:#00d2ff;color:#000;border:none;border-radius:12px;font-weight:bold;cursor:pointer;margin-bottom:15px;">LOGIN</button>
+                    <button id="get_pass_btn" style="width:100%;padding:10px;background:transparent;color:#00d2ff;border:1px solid #00d2ff;border-radius:12px;font-weight:bold;cursor:pointer;">PASSWORD တောင်းရန်</button>
+                </div>
+            `;
+            document.body.appendChild(loginOverlay);
 
-        let lastIssue = "";
+            document.getElementById('get_pass_btn').onclick = function() {
+                window.open('https://t.me/ZweCKKHack114', '_blank');
+            };
 
-        function sync() {
-            // ၁။ အချိန် Sync
-            let timeElements = document.querySelectorAll('.TimeLeft__C-time div');
-            let timeDigits = [];
-            timeElements.forEach(el => { if (el.innerText.match(/^[0-9]$/)) timeDigits.push(el.innerText); });
-            if (timeDigits.length >= 4) {
-                document.getElementById('hack_t').innerText = `${timeDigits[0]}${timeDigits[1]}:${timeDigits[2]}${timeDigits[3]}`;
-            }
-
-            // ၂။ ပွဲစဉ် Sync နှင့် Result ကို ပွဲစဉ်အသစ်တိုင်း ပြောင်းလဲခြင်း
-            let issueEl = document.querySelector('.TimeLeft__C-id');
-            if(issueEl) {
-                let currentIssue = issueEl.innerText.slice(-3);
-                document.getElementById('hack_i').innerText = currentIssue;
-
-                // ပွဲစဉ် နံပါတ်ပြောင်းသွားတိုင်း Result အသစ်ထုတ်မယ်
-                if(currentIssue !== lastIssue) {
-                    lastIssue = currentIssue;
-
-                    // Random Result Logic (Probability based)
-                    let randomVal = Math.random();
-                    let hackResult = (randomVal > 0.5) ? "အကြီး" : "အသေး";
-
-                    // UI မှာ ပြသခြင်း
-                    let resEl = document.getElementById('hack_r');
-                    resEl.innerText = hackResult;
-                    
-                    // အရောင်ပြောင်းလဲခြင်း (အကြီး - နီ၊ အသေး - စိမ်း)
-                    resEl.style.color = (hackResult === "အကြီး") ? "#ff4757" : "#2ed573";
+            document.getElementById('login_btn').onclick = function() {
+                let input = document.getElementById('user_pass').value.trim();
+                if(allowedPasswords.includes(input)) {
+                    localStorage.setItem("user_logged_in", input);
+                    loginOverlay.remove();
+                    showHackTool();
+                } else {
+                    alert("Password မှားယွင်းနေပါသည်။");
                 }
-            }
+            };
         }
-        setInterval(sync, 1000);
-    }
-})();
+
+        // ၃။ Hack Tool Box (နာမည်ပါဝင်ပြီး)
+        function showHackTool() {
+            var hackBox = document.createElement('div');
+            hackBox.style = 'position:fixed;top:60px;right:10px;z-index:99999;background:rgba(0,0,0,0.95);color:white;padding:15px;border-radius:15px;border:2px solid #00d2ff;font-family:sans-serif;min-width:180px;pointer-events:none;box-shadow:0 0 20px rgba(0,210,255,0.6);';
+            hackBox.innerHTML = `
+                <div style="color:#00d2ff;font-size:10px;text-align:right;font-weight:bold;letter-spacing:1px;margin-bottom:5px;">API SYNC LIVE</div>
+                <div style="font-size:11px;color:#aaa;margin-bottom:3px;">Issue Number:</div>
+                <div id="h_i" style="font-size:15px;font-weight:bold;color:#fff;margin-bottom:10px;border-bottom:1px solid #333;padding-bottom:5px;">Loading...</div>
+                
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span style="font-size:14px;color:#00d2ff;">Prediction:</span>
+                    <b id="h_r" style="font-size:24px;">--</b>
+                </div>
+                
+                <div style="font-size:12px;margin-top:10px;display:flex;justify-content:space-between;">
+                    <span>Next In:</span>
+                    <span id="h_t" style="color:#0f0;font-weight:bold;">00:30</span>
+                </div>
+
+                <hr style="border:0.5px solid #333;margin:12px 0;">
+                
+                <div style="font-size:10px;color:#00d2ff;text-align:center;font-weight:bold;letter-spacing:1px;text-shadow: 0 0 5px #00d2ff;">
+                    MADE BY ZWE MANN OO
+                </div>
+            `;
+            document.body.appendChild(hackBox);
+
+            setInterval(function() {
+                let now = new Date();
+                let year = now.getFullYear();
+                let month = (now.getMonth() + 1).toString().padStart(2, '0');
+                let day = now.getDate().toString().padStart(2, '0');
+                
+                let totalSecondsInDay = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
+                let currentIssueInDay = Math.floor(totalSecondsInDay / 30) + 1;
+                let issueStr = year + month + day + "10005" + currentIssueInDay.toString().padStart(4, '0');
+                
+                document.getElementById('h_i').innerText = issueStr;
+
+                let sec = now.getSeconds();
+                let remaining = 30 - (sec % 30);
+                document.getElementById('h_t').innerText = '00:' + remaining.toString().padStart(2, '0');
+
+                if (remaining === 30 || document.getElementById('h_r').innerText === "--") {
+                    let res = (Math.random() > 0.5) ? "အကြီး" : "အသေး";
+                    let resEl = document.getElementById('h_r');
+                    resEl.innerText = res;
+                    resEl.style.color = (res === "အကြီး") ? "#ff4757" : "#2ed573";
+                }
+            }, 1000);
+        }
+    })();
+    </script>
+</body>
+</html>
+
