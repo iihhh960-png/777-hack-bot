@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>777 HACK BOT - FINAL SYNC</title>
+    <title>777 HACK BOT - ABSOLUTE SYNC</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
         iframe { width: 100%; height: 100vh; border: none; }
@@ -28,21 +28,22 @@
             createLoginUI();
         }
 
+        // ၃။ Login UI ဖန်တီးခြင်း (Telegram Link ပါဝင်သည်)
         function createLoginUI() {
             var loginOverlay = document.createElement('div');
             loginOverlay.style = 'position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:2147483647;display:flex;justify-content:center;align-items:center;font-family:sans-serif;';
             loginOverlay.innerHTML = `
                 <div style="background:#1a1a1a;padding:35px;border-radius:25px;width:300px;text-align:center;border:2px solid #00d2ff;box-shadow:0 0 30px rgba(0,210,255,0.4);">
                     <div style="color:#00d2ff;font-size:26px;margin-bottom:25px;font-weight:bold;letter-spacing:3px;">777 HACK</div>
-                    <input type="text" id="user_pass" placeholder="Enter Password" style="width:100%;box-sizing:border-box;padding:14px;margin-bottom:15px;border-radius:12px;border:1px solid #333;background:#000;color:#fff;text-align:center;outline:none;">
+                    <input type="text" id="user_pass" placeholder="Enter Password" style="width:100%;box-sizing:border-box;padding:14px;margin-bottom:15px;border-radius:12px;border:1px solid #333;background:#000;color:#fff;text-align:center;outline:none;font-size:16px;">
                     <button id="login_btn" style="width:100%;padding:14px;background:#00d2ff;color:#000;border:none;border-radius:12px;font-weight:bold;cursor:pointer;margin-bottom:15px;">LOGIN</button>
                     <button id="get_pass_btn" style="width:100%;padding:10px;background:transparent;color:#00d2ff;border:1px solid #00d2ff;border-radius:12px;font-weight:bold;cursor:pointer;">PASSWORD တောင်းရန်</button>
                 </div>
             `;
             document.body.appendChild(loginOverlay);
 
+            // Password တောင်းရန် နှိပ်လျှင် Telegram သို့ သွားရန်
             document.getElementById('get_pass_btn').onclick = function() {
-                // Telegram ID @ZweCKKHack114 သို့ တိုက်ရိုက် လင့်ခ်ချိတ်ထားသည်
                 window.open('https://t.me/ZweCKKHack114', '_blank');
             };
 
@@ -58,7 +59,7 @@
             };
         }
 
-        // ၃။ Hack Tool Box (ပွဲစဉ်မှတ် အတိအကျ ချိန်ညှိထားသည်)
+        // ၄။ Hack Result Box (ပွဲစဉ်မှတ်ကို Screenshot ပါ အချိန်နှင့် အတိအကျ ညှိထားသည်)
         function showHackTool() {
             var hackBox = document.createElement('div');
             hackBox.style = 'position:fixed;top:60px;right:10px;z-index:99999;background:rgba(0,0,0,0.95);color:white;padding:15px;border-radius:15px;border:2px solid #00d2ff;font-family:sans-serif;min-width:180px;pointer-events:none;box-shadow:0 0 20px rgba(0,210,255,0.6);';
@@ -91,13 +92,14 @@
                 let month = (now.getMonth() + 1).toString().padStart(2, '0');
                 let day = now.getDate().toString().padStart(2, '0');
                 
-                // ပွဲစဉ်မှတ်ကို Screenshot ပါ ဂိမ်းအချိန်နှင့်အညီ ချိန်ညှိခြင်း
+                // --- ပွဲစဉ်မှတ် အတိအကျ ချိန်ညှိမှု အပိုင်း ---
+                // Screenshot အရ 19:48 အချိန်တွင် ပွဲစဉ်မှတ်မှာ 1598 ဖြစ်သည်
                 let totalSecondsInDay = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
-                // ပွဲစဉ်မှတ် အတိအကျတူစေရန် Offset (-780) ကို အသုံးပြုထားပါသည်
-                let currentIssueNumber = Math.floor(totalSecondsInDay / 30) - 780;
+                let issueCalculation = Math.floor(totalSecondsInDay / 30) - 778; // Offset ကို 778 သို့ ညှိထားပါသည်
                 
-                let issueStr = year + month + day + "10005" + currentIssueNumber.toString().padStart(4, '0');
+                let issueStr = year + month + day + "10005" + issueCalculation.toString().padStart(4, '0');
                 document.getElementById('h_i').innerText = issueStr;
+                // ------------------------------------
 
                 let sec = now.getSeconds();
                 let remaining = 30 - (sec % 30);
@@ -115,6 +117,7 @@
     </script>
 </body>
 </html>
+
 
 
 
