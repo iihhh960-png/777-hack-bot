@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>777 HACK BOT - FINAL SYNC V2</title>
+    <title>777 HACK BOT - FINAL SYNC</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
         iframe { width: 100%; height: 100vh; border: none; }
@@ -14,13 +14,12 @@
 
     <script>
     (function() {
-        // ၁။ User ၅၀ အတွက် သီးသန့် Password စာရင်း
+        // ၁။ Password စာရင်း (admin114 + zwe_001 to zwe_050)
         const passwords = ["admin114"];
         for (let i = 1; i <= 50; i++) {
             passwords.push("zwe_" + i.toString().padStart(3, '0'));
         }
 
-        // ၂။ Login အခြေအနေ စစ်ဆေးခြင်း
         let savedPass = localStorage.getItem("user_logged_in");
         if (savedPass && passwords.includes(savedPass)) {
             showHackTool(); 
@@ -86,12 +85,13 @@
                 let month = (now.getMonth() + 1).toString().padStart(2, '0');
                 let day = now.getDate().toString().padStart(2, '0');
                 
-                // Screenshot အရ ၂၀:၀၂ အချိန်တွင် ဂိမ်းထဲတွင် ၁၆၂၅ ဖြစ်နေသည်
-                // ထို့ကြောင့် Offset ကို -၇၇၉ သို့ ညှိလိုက်သည် (အရင်ကထက် ၁ ပွဲ လျှော့တွက်ခြင်း)
+                // --- ပွဲစဉ်မှတ် ချိန်ညှိချက် ---
+                // ၂၀:၂၁:၃၆ အချိန်တွင် ဂိမ်းထဲတွင် ၁၆၆၄ ဖြစ်သည်
+                // အတိအကျတူစေရန် Offset ကို -780 သို့ ပြင်ဆင်လိုက်သည်
                 let totalSecondsInDay = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
-                let issueCalculation = Math.floor(totalSecondsInDay / 30) - 779; 
+                let issueNumber = Math.floor(totalSecondsInDay / 30) - 780; 
                 
-                let issueStr = year + month + day + "10005" + issueCalculation.toString().padStart(4, '0');
+                let issueStr = year + month + day + "10005" + issueNumber.toString().padStart(4, '0');
                 document.getElementById('h_i').innerText = issueStr;
 
                 let sec = now.getSeconds();
@@ -110,3 +110,4 @@
     </script>
 </body>
 </html>
+
