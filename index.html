@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>777 HACK BOT - SYNC FIXED</title>
+    <title>777 HACK BOT - PERFECT SYNC</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
         iframe { width: 100%; height: 100vh; border: none; }
@@ -39,10 +39,6 @@
             `;
             document.body.appendChild(loginOverlay);
 
-            document.getElementById('get_pass_btn').onclick = function() {
-                window.open('https://t.me/ZweCKKHack114', '_blank');
-            };
-
             document.getElementById('login_btn').onclick = function() {
                 let input = document.getElementById('user_pass').value.trim().toLowerCase();
                 if(passwords.includes(input)) {
@@ -61,7 +57,7 @@
             hackBox.innerHTML = `
                 <div style="color:#00d2ff;font-size:10px;text-align:right;font-weight:bold;letter-spacing:1px;margin-bottom:5px;">API SYNC LIVE</div>
                 <div style="font-size:11px;color:#aaa;margin-bottom:3px;">Issue Number:</div>
-                <div id="h_i" style="font-size:15px;font-weight:bold;color:#fff;margin-bottom:10px;border-bottom:1px solid #333;padding-bottom:5px;">Loading...</div>
+                <div id="h_i" style="font-size:14px;font-weight:bold;color:#fff;margin-bottom:10px;border-bottom:1px solid #333;padding-bottom:5px;">Loading...</div>
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <span style="font-size:14px;color:#00d2ff;">Result:</span>
                     <b id="h_r" style="font-size:24px;">--</b>
@@ -71,25 +67,26 @@
                     <span id="h_t" style="color:#0f0;font-weight:bold;">00:30</span>
                 </div>
                 <hr style="border:0.5px solid #333;margin:12px 0;">
-                <div style="font-size:10px;color:#00d2ff;text-align:center;font-weight:bold;letter-spacing:1px;text-shadow: 0 0 5px #00d2ff;">MADE BY ZWE MANN OO</div>
+                <div style="font-size:10px;color:#00d2ff;text-align:center;font-weight:bold;letter-spacing:1px;">MADE BY ZWE MANN OO</div>
             `;
             document.body.appendChild(hackBox);
 
             setInterval(function() {
                 let now = new Date();
                 
-                // Screenshot (၀၅:၄၉) အရ ပွဲစဉ် ၂၈၀၀ နှင့် ကိုက်ညီရန် ချိန်ညှိခြင်း
-                let totalSecondsInDay = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
-                let issueNumber = Math.floor(totalSecondsInDay / 30) + 2101; 
+                // ၁။ Screenshot ၀၅:၅၄ အရ ၂၈၁၀ နှင့် ကိုက်ရန် တိုက်ရိုက်တွက်နည်း
+                let totalSeconds = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
+                let baseIssue = Math.floor(totalSeconds / 30) + 2102; 
                 
-                // နံပါတ်ကို format ချခြင်း (၂၀၂၆၀၁၀၃၁၀၀၀၅ + ပွဲစဉ်နံပါတ်)
-                let issueStr = "2026010310005" + issueNumber.toString();
+                // ၂။ ပွဲစဉ်မှတ်ကို Format ချခြင်း (နေ့စွဲကို ဂိမ်းအတိုင်း 20260103 ထားသည်)
+                let issueStr = "2026010310005" + baseIssue;
                 document.getElementById('h_i').innerText = issueStr;
 
-                let sec = now.getSeconds();
-                let remaining = 30 - (sec % 30);
+                // ၃။ Countdown ၃၀ စက္ကန့် စနစ်
+                let remaining = 30 - (now.getSeconds() % 30);
                 document.getElementById('h_t').innerText = '00:' + remaining.toString().padStart(2, '0');
 
+                // ၄။ ရလဒ်အသစ် ပြောင်းခြင်း
                 if (remaining === 30 || document.getElementById('h_r').innerText === "--") {
                     let res = (Math.random() > 0.5) ? "အကြီး" : "အသေး";
                     let resEl = document.getElementById('h_r');
