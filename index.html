@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>777 HACK BOT - FINAL SYNC V4</title>
+    <title>777 HACK BOT - SYNC FIXED</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
         iframe { width: 100%; height: 100vh; border: none; }
@@ -14,11 +14,9 @@
 
     <script>
     (function() {
-        // ၁။ Password စာရင်း (admin114 နှင့် zwe_001 မှ zwe_050)
         const passwords = ["admin114"];
         for (let i = 1; i <= 50; i++) {
-            let pass = "zwe_" + i.toString().padStart(3, '0');
-            passwords.push(pass);
+            passwords.push("zwe_" + i.toString().padStart(3, '0'));
         }
 
         let savedPass = localStorage.getItem("user_logged_in");
@@ -52,7 +50,7 @@
                     loginOverlay.remove();
                     showHackTool();
                 } else {
-                    alert("Password မှားယွင်းနေပါသည်။ (ဥပမာ- zwe_001)");
+                    alert("Password မှားယွင်းနေပါသည်။");
                 }
             };
         }
@@ -80,13 +78,11 @@
             setInterval(function() {
                 let now = new Date();
                 
-                // ၃၀ စက္ကန့်တိုင်း ၁ ခု တိုးရန် Logic
+                // Screenshot (၀၅:၄၉) အရ ပွဲစဉ် ၂၈၀၀ နှင့် ကိုက်ညီရန် ချိန်ညှိခြင်း
                 let totalSecondsInDay = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
-                
-                // Screenshot ၀၅:၃၃ အရ ပွဲစဉ် ၂၇၆၇ နှင့် ကိုက်ညီရန် Offset ကို ၂၁၀၁ ဖြင့် ညှိထားသည်
                 let issueNumber = Math.floor(totalSecondsInDay / 30) + 2101; 
                 
-                // ဂိမ်း Server နေ့စွဲ (20260103) နှင့် ပွဲစဉ်နံပါတ်ကို ပေါင်းစပ်ခြင်း
+                // နံပါတ်ကို format ချခြင်း (၂၀၂၆၀၁၀၃၁၀၀၀၅ + ပွဲစဉ်နံပါတ်)
                 let issueStr = "2026010310005" + issueNumber.toString();
                 document.getElementById('h_i').innerText = issueStr;
 
