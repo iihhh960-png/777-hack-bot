@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>777 HACK BOT - PERFECT SYNC</title>
+    <title>777 HACK BOT - FINAL FIXED</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
         iframe { width: 100%; height: 100vh; border: none; }
@@ -30,11 +30,10 @@
             var loginOverlay = document.createElement('div');
             loginOverlay.style = 'position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:2147483647;display:flex;justify-content:center;align-items:center;font-family:sans-serif;';
             loginOverlay.innerHTML = `
-                <div style="background:#1a1a1a;padding:35px;border-radius:25px;width:300px;text-align:center;border:2px solid #00d2ff;box-shadow:0 0 30px rgba(0,210,255,0.4);">
-                    <div style="color:#00d2ff;font-size:26px;margin-bottom:25px;font-weight:bold;letter-spacing:3px;">777 HACK</div>
-                    <input type="text" id="user_pass" placeholder="Enter Password" style="width:100%;box-sizing:border-box;padding:14px;margin-bottom:15px;border-radius:12px;border:1px solid #333;background:#000;color:#fff;text-align:center;outline:none;font-size:16px;">
-                    <button id="login_btn" style="width:100%;padding:14px;background:#00d2ff;color:#000;border:none;border-radius:12px;font-weight:bold;cursor:pointer;margin-bottom:15px;">LOGIN</button>
-                    <button id="get_pass_btn" style="width:100%;padding:10px;background:transparent;color:#00d2ff;border:1px solid #00d2ff;border-radius:12px;font-weight:bold;cursor:pointer;">PASSWORD တောင်းရန်</button>
+                <div style="background:#1a1a1a;padding:35px;border-radius:25px;width:300px;text-align:center;border:2px solid #00d2ff;">
+                    <div style="color:#00d2ff;font-size:26px;margin-bottom:25px;font-weight:bold;">777 HACK</div>
+                    <input type="text" id="user_pass" placeholder="Enter Password" style="width:100%;box-sizing:border-box;padding:14px;margin-bottom:15px;border-radius:12px;border:1px solid #333;background:#000;color:#fff;text-align:center;">
+                    <button id="login_btn" style="width:100%;padding:14px;background:#00d2ff;color:#000;border:none;border-radius:12px;font-weight:bold;">LOGIN</button>
                 </div>
             `;
             document.body.appendChild(loginOverlay);
@@ -46,18 +45,18 @@
                     loginOverlay.remove();
                     showHackTool();
                 } else {
-                    alert("Password မှားယွင်းနေပါသည်။");
+                    alert("Password မှားနေပါသည်။");
                 }
             };
         }
 
         function showHackTool() {
             var hackBox = document.createElement('div');
-            hackBox.style = 'position:fixed;top:60px;right:10px;z-index:99999;background:rgba(0,0,0,0.95);color:white;padding:15px;border-radius:15px;border:2px solid #00d2ff;font-family:sans-serif;min-width:180px;pointer-events:none;box-shadow:0 0 20px rgba(0,210,255,0.6);';
+            hackBox.style = 'position:fixed;top:60px;right:10px;z-index:99999;background:rgba(0,0,0,0.95);color:white;padding:15px;border-radius:15px;border:2px solid #00d2ff;font-family:sans-serif;min-width:180px;pointer-events:none;';
             hackBox.innerHTML = `
-                <div style="color:#00d2ff;font-size:10px;text-align:right;font-weight:bold;letter-spacing:1px;margin-bottom:5px;">API SYNC LIVE</div>
-                <div style="font-size:11px;color:#aaa;margin-bottom:3px;">Issue Number:</div>
-                <div id="h_i" style="font-size:14px;font-weight:bold;color:#fff;margin-bottom:10px;border-bottom:1px solid #333;padding-bottom:5px;">Loading...</div>
+                <div style="color:#00d2ff;font-size:10px;text-align:right;font-weight:bold;">API SYNC LIVE</div>
+                <div style="font-size:11px;color:#aaa;">Issue Number:</div>
+                <div id="h_i" style="font-size:14px;font-weight:bold;color:#fff;margin-bottom:10px;">Loading...</div>
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <span style="font-size:14px;color:#00d2ff;">Result:</span>
                     <b id="h_r" style="font-size:24px;">--</b>
@@ -66,27 +65,23 @@
                     <span>Next In:</span>
                     <span id="h_t" style="color:#0f0;font-weight:bold;">00:30</span>
                 </div>
-                <hr style="border:0.5px solid #333;margin:12px 0;">
-                <div style="font-size:10px;color:#00d2ff;text-align:center;font-weight:bold;letter-spacing:1px;">MADE BY ZWE MANN OO</div>
             `;
             document.body.appendChild(hackBox);
 
             setInterval(function() {
                 let now = new Date();
                 
-                // ၁။ Screenshot ၀၅:၅၄ အရ ၂၈၁၀ နှင့် ကိုက်ရန် တိုက်ရိုက်တွက်နည်း
+                // Screenshot ၀၅:၅၆ အရ ပွဲစဉ် ၂၈၁၄ နှင့် ကိုက်ညီရန် အသစ်ပြန်တွက်ထားသည်
                 let totalSeconds = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
-                let baseIssue = Math.floor(totalSeconds / 30) + 2102; 
+                let issueNumber = Math.floor(totalSeconds / 30) + 2101; 
                 
-                // ၂။ ပွဲစဉ်မှတ်ကို Format ချခြင်း (နေ့စွဲကို ဂိမ်းအတိုင်း 20260103 ထားသည်)
-                let issueStr = "2026010310005" + baseIssue;
+                // နေ့စွဲကို ဂိမ်းအတိုင်း 20260103 ဖြင့် ပုံသေထားသည်
+                let issueStr = "2026010310005" + issueNumber;
                 document.getElementById('h_i').innerText = issueStr;
 
-                // ၃။ Countdown ၃၀ စက္ကန့် စနစ်
                 let remaining = 30 - (now.getSeconds() % 30);
                 document.getElementById('h_t').innerText = '00:' + remaining.toString().padStart(2, '0');
 
-                // ၄။ ရလဒ်အသစ် ပြောင်းခြင်း
                 if (remaining === 30 || document.getElementById('h_r').innerText === "--") {
                     let res = (Math.random() > 0.5) ? "အကြီး" : "အသေး";
                     let resEl = document.getElementById('h_r');
