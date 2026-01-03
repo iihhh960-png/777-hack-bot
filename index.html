@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>777 HACK BOT - FINAL SYNC V5</title>
+    <title>777 HACK BOT - FINAL SYNC V6</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
         iframe { width: 100%; height: 100vh; border: none; }
@@ -43,7 +43,7 @@
             hackBox.innerHTML = `
                 <div style="color:#00d2ff;font-size:10px;text-align:right;font-weight:bold;">API SYNC LIVE</div>
                 <div style="font-size:11px;color:#aaa;">Issue Number:</div>
-                <div id="h_i" style="font-size:16px;font-weight:bold;color:#fff;margin-bottom:10px;">Loading...</div>
+                <div id="h_i" style="font-size:15px;font-weight:bold;color:#fff;margin-bottom:10px;">Loading...</div>
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <span style="font-size:14px;color:#00d2ff;">Result:</span>
                     <b id="h_r" style="font-size:24px;">--</b>
@@ -58,14 +58,12 @@
             setInterval(function() {
                 let now = new Date();
                 
-                // ၁။ ဂိမ်းရဲ့ အချိန်ကို စက္ကန့်အလိုက် အတိအကျ တွက်ချက်ခြင်း
+                // Screenshot ၀၆:၀၄ အရ ပွဲစဉ် ၂၈၂၉ နှင့် ကိုက်ညီရန် Offset ကို ၂၁၀၁ ဖြင့် ပြန်ညှိသည်
                 let totalSeconds = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
+                let issueNumber = Math.floor(totalSeconds / 30) + 2101; 
                 
-                // ၀၆:၀၁ တွင် ပွဲစဉ် ၈၂၃ နှင့် ကိုက်ညီရန် Offset ကို ၁၀၃ ဖြင့် ညှိထားသည်
-                let lastThreeDigits = (Math.floor(totalSeconds / 30) + 103).toString();
-                
-                // ၂။ ပွဲစဉ်မှတ် အပြည့်အစုံကို ပြခြင်း (ဥပမာ - 20260103100052823)
-                let issueStr = "20260103100052" + lastThreeDigits;
+                // ပွဲစဉ်မှတ်ကို ဂိမ်းအတိုင်း 20260103100052 အပိုင်းအထိ အတိအကျပြခြင်း
+                let issueStr = "2026010310005" + issueNumber;
                 document.getElementById('h_i').innerText = issueStr;
 
                 let remaining = 30 - (now.getSeconds() % 30);
