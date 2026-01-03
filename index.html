@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>777 HACK BOT - FINAL SYNC V6</title>
+    <title>777 HACK BOT - REALTIME SYNC</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
         iframe { width: 100%; height: 100vh; border: none; }
@@ -58,11 +58,11 @@
             setInterval(function() {
                 let now = new Date();
                 
-                // Screenshot ၀၆:၀၄ အရ ပွဲစဉ် ၂၈၂၉ နှင့် ကိုက်ညီရန် Offset ကို ၂၁၀၁ ဖြင့် ပြန်ညှိသည်
+                // ၀၆:၀၆ အရ ပွဲစဉ် ၂၈၃၃ နှင့် အတိအကျ ချိန်ညှိထားသည်
                 let totalSeconds = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
                 let issueNumber = Math.floor(totalSeconds / 30) + 2101; 
                 
-                // ပွဲစဉ်မှတ်ကို ဂိမ်းအတိုင်း 20260103100052 အပိုင်းအထိ အတိအကျပြခြင်း
+                // ဂိမ်း၏ နေ့စွဲနံပါတ် 2026010310005 နှင့် ပေါင်းစပ်ခြင်း
                 let issueStr = "2026010310005" + issueNumber;
                 document.getElementById('h_i').innerText = issueStr;
 
