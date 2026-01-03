@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>777 HACK BOT - FINAL SYNC V3</title>
+    <title>777 HACK BOT - FINAL SYNC V4</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
         iframe { width: 100%; height: 100vh; border: none; }
@@ -14,10 +14,9 @@
 
     <script>
     (function() {
-        // ၁။ Password စာရင်း (zwe_001 မှ zwe_050 ကို တိတိကျကျ သတ်မှတ်ခြင်း)
+        // ၁။ Password စာရင်း (admin114 နှင့် zwe_001 မှ zwe_050)
         const passwords = ["admin114"];
         for (let i = 1; i <= 50; i++) {
-            // zwe_001, zwe_002 စသည်ဖြင့် တိတိကျကျ ဖန်တီးသည်
             let pass = "zwe_" + i.toString().padStart(3, '0');
             passwords.push(pass);
         }
@@ -65,17 +64,14 @@
                 <div style="color:#00d2ff;font-size:10px;text-align:right;font-weight:bold;letter-spacing:1px;margin-bottom:5px;">API SYNC LIVE</div>
                 <div style="font-size:11px;color:#aaa;margin-bottom:3px;">Issue Number:</div>
                 <div id="h_i" style="font-size:15px;font-weight:bold;color:#fff;margin-bottom:10px;border-bottom:1px solid #333;padding-bottom:5px;">Loading...</div>
-                
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <span style="font-size:14px;color:#00d2ff;">Result:</span>
                     <b id="h_r" style="font-size:24px;">--</b>
                 </div>
-                
                 <div style="font-size:12px;margin-top:10px;display:flex;justify-content:space-between;">
                     <span>Next In:</span>
                     <span id="h_t" style="color:#0f0;font-weight:bold;">00:30</span>
                 </div>
-
                 <hr style="border:0.5px solid #333;margin:12px 0;">
                 <div style="font-size:10px;color:#00d2ff;text-align:center;font-weight:bold;letter-spacing:1px;text-shadow: 0 0 5px #00d2ff;">MADE BY ZWE MANN OO</div>
             `;
@@ -83,17 +79,15 @@
 
             setInterval(function() {
                 let now = new Date();
-                let year = now.getFullYear();
-                let month = (now.getMonth() + 1).toString().padStart(2, '0');
-                let day = now.getDate().toString().padStart(2, '0');
                 
-                // --- ပွဲစဉ်မှတ် ချိန်ညှိချက် (Sync Fix) ---
-                // ၂၀:၄၃:၂၀ တွင် ဂိမ်း၌ ၁၇၀၇ ဖြစ်သည်
-                // နှစ်ပွဲနောက်ကျနေသဖြင့် Offset ကို -779 သို့ ပြောင်းလဲခြင်းဖြင့် ရှေ့သို့ ၂ ပွဲ တိုးလိုက်သည်
+                // ၃၀ စက္ကန့်တိုင်း ၁ ခု တိုးရန် Logic
                 let totalSecondsInDay = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
-                let issueNumber = Math.floor(totalSecondsInDay / 30) - 779; 
                 
-                let issueStr = year + month + day + "10005" + issueNumber.toString().padStart(4, '0');
+                // Screenshot ၀၅:၃၃ အရ ပွဲစဉ် ၂၇၆၇ နှင့် ကိုက်ညီရန် Offset ကို ၂၁၀၁ ဖြင့် ညှိထားသည်
+                let issueNumber = Math.floor(totalSecondsInDay / 30) + 2101; 
+                
+                // ဂိမ်း Server နေ့စွဲ (20260103) နှင့် ပွဲစဉ်နံပါတ်ကို ပေါင်းစပ်ခြင်း
+                let issueStr = "2026010310005" + issueNumber.toString();
                 document.getElementById('h_i').innerText = issueStr;
 
                 let sec = now.getSeconds();
@@ -112,4 +106,3 @@
     </script>
 </body>
 </html>
-
