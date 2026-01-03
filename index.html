@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>777 HACK BOT - FINAL SYNC</title>
+    <title>777 HACK BOT - ALL-IN-ONE</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
         iframe { width: 100%; height: 100vh; border: none; }
@@ -14,6 +14,7 @@
 
     <script>
     (function() {
+        // --- ၁။ PASSWORD LOGIN ပိုင်း ---
         const passwords = ["admin114"];
         for (let i = 1; i <= 50; i++) {
             passwords.push("zwe_" + i.toString().padStart(3, '0'));
@@ -29,14 +30,28 @@
         function createLoginUI() {
             var loginOverlay = document.createElement('div');
             loginOverlay.style = 'position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:2147483647;display:flex;justify-content:center;align-items:center;font-family:sans-serif;';
-            loginOverlay.innerHTML = `<div style="background:#1a1a1a;padding:35px;border-radius:25px;width:300px;text-align:center;border:2px solid #00d2ff;"><div style="color:#00d2ff;font-size:26px;margin-bottom:25px;font-weight:bold;">777 HACK</div><input type="text" id="user_pass" placeholder="Enter Password" style="width:100%;box-sizing:border-box;padding:14px;margin-bottom:15px;border-radius:12px;border:1px solid #333;background:#000;color:#fff;text-align:center;"><button id="login_btn" style="width:100%;padding:14px;background:#00d2ff;color:#000;border:none;border-radius:12px;font-weight:bold;">LOGIN</button></div>`;
+            loginOverlay.innerHTML = `
+                <div style="background:#1a1a1a;padding:35px;border-radius:25px;width:300px;text-align:center;border:2px solid #00d2ff;">
+                    <div style="color:#00d2ff;font-size:26px;margin-bottom:25px;font-weight:bold;">777 HACK</div>
+                    <input type="text" id="user_pass" placeholder="Enter Password" style="width:100%;box-sizing:border-box;padding:14px;margin-bottom:15px;border-radius:12px;border:1px solid #333;background:#000;color:#fff;text-align:center;">
+                    <button id="login_btn" style="width:100%;padding:14px;background:#00d2ff;color:#000;border:none;border-radius:12px;font-weight:bold;">LOGIN</button>
+                </div>
+            `;
             document.body.appendChild(loginOverlay);
+
             document.getElementById('login_btn').onclick = function() {
                 let input = document.getElementById('user_pass').value.trim().toLowerCase();
-                if(passwords.includes(input)) { localStorage.setItem("user_logged_in", input); loginOverlay.remove(); showHackTool(); } else { alert("Password မှားနေပါသည်။"); }
+                if(passwords.includes(input)) {
+                    localStorage.setItem("user_logged_in", input);
+                    loginOverlay.remove();
+                    showHackTool();
+                } else {
+                    alert("Password မှားနေပါသည်။");
+                }
             };
         }
 
+        // --- ၂။ HACK TOOL UI ပိုင်း ---
         function showHackTool() {
             var hackBox = document.createElement('div');
             hackBox.style = 'position:fixed;top:60px;right:10px;z-index:99999;background:rgba(0,0,0,0.95);color:white;padding:15px;border-radius:15px;border:2px solid #00d2ff;font-family:sans-serif;min-width:180px;pointer-events:none;';
@@ -53,14 +68,15 @@
                     <span id="h_t" style="color:#0f0;font-weight:bold;">00:30</span>
                 </div>
                 <hr style="border:0.5px solid #333;margin:12px 0;">
-                <div style="font-size:10px;color:#00d2ff;text-align:center;font-weight:bold;letter-spacing:1px;">MADE BY ZWE MANN OO</div>
+                <div id="author_tag" style="font-size:10px;color:#00d2ff;text-align:center;font-weight:bold;letter-spacing:1px;">MADE BY ZWE MANN OO</div>
             `;
             document.body.appendChild(hackBox);
 
+            // --- ၃။ ပွဲစဉ်မှတ် SYNC တွက်ချက်ခြင်း ---
             setInterval(function() {
                 let now = new Date();
                 
-                // ၀၆:၁၂ တွင် ၂၈၄၅ ဖြစ်နေသော ဂိမ်းအချိန်စက်ဝန်းနှင့် ညှိထားသည်
+                // ၀၆:၁၅ တွင် ၂၈၅၁ နှင့် အတိအကျ ချိန်ညှိထားသည်
                 let totalSeconds = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
                 let issueNumber = Math.floor(totalSeconds / 30) + 2101; 
                 
