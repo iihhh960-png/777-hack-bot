@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>777 HACK BOT - CLEAN VERSION</title>
+    <title>777 HACK BOT - FINAL SYNC</title>
     <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
         iframe { width: 100%; height: 100vh; border: none; }
@@ -52,13 +52,18 @@
                     <span>Next In:</span>
                     <span id="h_t" style="color:#0f0;font-weight:bold;">00:30</span>
                 </div>
+                <hr style="border:0.5px solid #333;margin:12px 0;">
+                <div style="font-size:10px;color:#00d2ff;text-align:center;font-weight:bold;letter-spacing:1px;">MADE BY ZWE MANN OO</div>
             `;
             document.body.appendChild(hackBox);
 
             setInterval(function() {
                 let now = new Date();
+                
+                // ၀၆:၁၂ တွင် ၂၈၄၅ ဖြစ်နေသော ဂိမ်းအချိန်စက်ဝန်းနှင့် ညှိထားသည်
                 let totalSeconds = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
                 let issueNumber = Math.floor(totalSeconds / 30) + 2101; 
+                
                 let issueStr = "2026010310005" + issueNumber;
                 document.getElementById('h_i').innerText = issueStr;
 
