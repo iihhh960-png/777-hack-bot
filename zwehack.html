@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { margin: 0; overflow: hidden; background: #000; }
+        iframe { width: 100vw; height: 100vh; border: none; }
+        #loginArea {
+            position: fixed; top: 20px; right: 20px; z-index: 1000;
+            background: rgba(0,0,0,0.85); padding: 15px; border-radius: 10px;
+            border: 1px solid #00f2ea; text-align: center;
+        }
+        #passInput {
+            padding: 8px; width: 120px; background: #000; color: #fff;
+            border: 1px solid #00f2ea; border-radius: 5px; margin-bottom: 10px;
+        }
+        #loginBtn {
+            padding: 8px 15px; background: #00f2ea; color: #000;
+            border: none; border-radius: 5px; font-weight: bold; cursor: pointer;
+        }
+        #hackBtn {
+            position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
+            background: #00f2ea; border-radius: 50%; display: none;
+            justify-content: center; align-items: center; cursor: pointer;
+            box-shadow: 0 0 20px #00f2ea; z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+<div id="loginArea">
+    <input type="password" id="passInput" placeholder="Password">
+    <br>
+    <button id="loginBtn">LOGIN</button>
+</div>
+
+<div id="hackBtn">
+    <svg viewBox="0 0 24 24" width="30" fill="none" stroke="#000" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+</div>
+
+<iframe id="gameFrame" src="https://www.777bigwingame.cc/#/register?invitationCode=53745102445"></iframe>
+
+<script>
+    const MY_PASSWORD = "zwe114"; // စမ်းသပ်ရန် Password
+    const loginBtn = document.getElementById("loginBtn");
+    const passInput = document.getElementById("passInput");
+    const loginArea = document.getElementById("loginArea");
+    const hackBtn = document.getElementById("hackBtn");
+
+    loginBtn.onclick = () => {
+        if(passInput.value === MY_PASSWORD) {
+            alert("Login Success!");
+            loginArea.style.display = "none";
+            hackBtn.style.display = "flex";
+        } else {
+            alert("Password မှားယွင်းနေပါသည်!");
+        }
+    };
+
+    hackBtn.onclick = () => {
+        alert("Hack Page လုပ်ဆောင်ချက်ကို ဤနေရာတွင် ဆက်လက်ထည့်သွင်းနိုင်ပါသည်။");
+    };
+</script>
+
+</body>
+</html>
